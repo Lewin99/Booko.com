@@ -32,7 +32,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-app.options("*", cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use("/books", booksrouter);
 app.use("/users", usersrouter);
