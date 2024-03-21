@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "bookImage": "https://example.com/book1.jpg",
+    "bookTitle": "The Great Gatsby",
+    "bookAuthor": "F. Scott Fitzgerald",
+    "bookPrice": 12.99,
+    "bookDescription": "The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+    "bookAdditionalInfo": "Genre: Classic, Published: 1925, ISBN: 9780743273565"
+  },
+  {
+    "id": 2,
+    "bookImage": "https://example.com/book2.jpg",
+    "bookTitle": "To Kill a Mockingbird",
+    "bookAuthor": "Harper Lee",
+    "bookPrice": 9.99,
+    "bookDescription": "The story of Scout Finch's experiences growing up in the racially divided town of Maycomb, Alabama.",
+    "bookAdditionalInfo": "Genre: Classic, Published: 1960, ISBN: 9780061120084"
+  },
+  {
+    "id": 3,
+    "bookImage": "https://example.com/book3.jpg",
+    "bookTitle": "1984",
+    "bookAuthor": "George Orwell",
+    "bookPrice": 10.99,
+    "bookDescription": "A dystopian novel set in a totalitarian society where individualism is suppressed and Big Brother is always watching.",
+    "bookAdditionalInfo": "Genre: Science Fiction, Published: 1949, ISBN: 9780451524935"
+  },
+  {
+    "id": 4,
+    "bookImage": "https://example.com/book4.jpg",
+    "bookTitle": "The Catcher in the Rye",
+    "bookAuthor": "J.D. Salinger",
+    "bookPrice": 11.99,
+    "bookDescription": "The story of Holden Caulfield, a disenchanted teenager navigating the complexities of life and society.",
+    "bookAdditionalInfo": "Genre: Coming-of-Age, Published: 1951, ISBN: 9780316769488"
+  },
+  {
+    "id": 5,
+    "bookImage": "https://example.com/book5.jpg",
+    "bookTitle": "Pride and Prejudice",
+    "bookAuthor": "Jane Austen",
+    "bookPrice": 8.99,
+    "bookDescription": "A romantic novel following the lives of the Bennet sisters as they navigate love, marriage, and societal expectations.",
+    "bookAdditionalInfo": "Genre: Classic, Published: 1813, ISBN: 9780141439518"
+  },
+  {
+    "id": 6,
+    "bookImage": "https://example.com/book6.jpg",
+    "bookTitle": "The Hobbit",
+    "bookAuthor": "J.R.R. Tolkien",
+    "bookPrice": 14.99,
+    "bookDescription": "The adventure of Bilbo Baggins as he journeys with a group of dwarves to reclaim their homeland from a dragon.",
+    "bookAdditionalInfo": "Genre: Fantasy, Published: 1937, ISBN: 9780547928227"
+  }
+]

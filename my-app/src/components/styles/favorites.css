@@ -1,0 +1,32 @@
+.FavImage > img {
+  width: 250px;
+  height: auto;
+}
+.Favbook {
+  display: flex;
+  width: 95%;
+  gap: 40px;
+  margin-top: 30px;
+}
+.Heading {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.Heading > h2 {
+  font-family: cursive;
+}
+.FavBooksDiv {
+  min-height: 497px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.NoFavHeading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+}

@@ -1,0 +1,15 @@
+.NotFound {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+}
+.NotFound h1 {
+  font-size: 100px;
+}
+.NotFound > .all {
+  color: blue;
+  padding: 100px;
+}

@@ -1,0 +1,54 @@
+.title {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.title > h2 {
+  font-family: cursive;
+}
+
+.FormWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.LoginIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.Form {
+  width: 60%;
+  border-radius: 5px;
+  margin-top: 54px;
+  padding: 30px;
+  min-height: 445px;
+  height: auto;
+}
+.form-group {
+  padding: 10px;
+  width: 40%;
+}
+.form-group > label {
+  padding: 5px;
+  color: rgb(255, 191, 0);
+  font-size: larger;
+}
+.form-control {
+  padding: 12px;
+
+  border-radius: 5px;
+}
+
+#input {
+  background: none;
+  width: 400px;
+}
