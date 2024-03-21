@@ -23,7 +23,7 @@ const conString = process.env.Db_connect;
 })();
 
 const corsOptions = {
-  origin: "https://booko-com.vercel.app/",
+  origin: "https://booko-com.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 204,
   credentials: true,
