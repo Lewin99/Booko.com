@@ -1,6 +1,6 @@
 export async function isLoggedIn(useMyContext) {
   try {
-    const response = await fetch("/users/Auth", {
+    const response = await fetch("https://booko-com.onrender.com/users/Auth", {
       method: "GET",
       credentials: "include",
     });

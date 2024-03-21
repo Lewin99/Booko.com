@@ -21,7 +21,7 @@ function LoginPage() {
     };
 
     try {
-      const response = await fetch("/users", {
+      const response = await fetch("https://booko-com.onrender.com/users", {
         method: "POST",
         body: JSON.stringify(body),
         headers: {

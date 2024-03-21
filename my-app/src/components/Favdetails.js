@@ -3,7 +3,7 @@ import "./styles/favorites.css";
 
 function Favdetails({ Fav, onDelete }) {
   const deleteFav = (id) => {
-    fetch(`/favourites/${id}`, {
+    fetch(`https://booko-com.onrender.com/favourites/${id}`, {
       method: "DELETE",
     })
       .then((response) => {

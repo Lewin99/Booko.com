@@ -14,7 +14,9 @@ function Favorites() {
   useEffect(() => {
     const fetchFav = async () => {
       try {
-        const response = await fetch("/favourites/userfav");
+        const response = await fetch(
+          "https://booko-com.onrender.com/favourites/userfav"
+        );
         if (response.ok) {
           const jsonRes = await response.json();
           const jsonResArray = jsonRes.books;

@@ -20,13 +20,16 @@ function LoginPage() {
     console.log("Password:", password);
 
     try {
-      const response = await fetch("/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://booko-com.onrender.com/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const statusCode = response.status;
 

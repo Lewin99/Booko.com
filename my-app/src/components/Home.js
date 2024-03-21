@@ -14,7 +14,9 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`/books?p=${pageNumber}`);
+      const response = await fetch(
+        `https://booko-com.onrender.com/books?p=${pageNumber}`
+      );
       if (response.ok) {
         const jsonRes = await response.json();
         const jsonResArray = jsonRes.data.books;
@@ -37,7 +39,9 @@ function Home() {
   const HandleSearch = async (e) => {
     e.preventDefault();
     setpageNumber(0);
-    const response = await fetch(`/books/search?title=${searchQuerry}`);
+    const response = await fetch(
+      `https://booko-com.onrender.com/books/search?title=${searchQuerry}`
+    );
     if (response.ok) {
       const Res = await response.json();
       const ResArray = Res.data.books;

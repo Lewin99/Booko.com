@@ -32,14 +32,17 @@ function Details() {
     };
 
     try {
-      const response = await fetch("/favourites", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://booko-com.onrender.com/favourites",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+          credentials: "include",
+        }
+      );
 
       const statusCode = response.status;
 
