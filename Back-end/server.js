@@ -37,6 +37,9 @@ app.use(cors(corsOptions));
 app.use("/books", booksrouter);
 app.use("/users", usersrouter);
 app.use("/favourites", favsrouter);
+app.get("/ping", (req, res) => {
+  res.status(200).send("Ping successful");
+});
 
 const port = process.env.PORT;
 
