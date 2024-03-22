@@ -36,7 +36,10 @@ function Header() {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link to="/favorites" className="nav-link text-warning">
-                  Favorite <FavoriteIcon />
+                  <span className="text-warning d-none d-sm-inline">
+                    Favorite
+                  </span>
+                  <FavoriteIcon />
                 </Link>
               </li>
               <li className="nav-item">

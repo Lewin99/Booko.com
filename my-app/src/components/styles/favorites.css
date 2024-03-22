@@ -1,6 +1,11 @@
-.FavImage > img {
-  width: 250px;
+.FavImage {
+  width: 20%;
   height: auto;
+}
+
+.FavImage > img {
+  width: 100%;
+  width: 100%;
 }
 .Favbook {
   display: flex;
@@ -29,4 +34,11 @@
   justify-content: center;
   align-items: center;
   font-family: cursive;
+}
+
+.Favinfowrapper {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

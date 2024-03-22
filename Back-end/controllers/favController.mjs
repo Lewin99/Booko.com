@@ -1,10 +1,18 @@
 import Favourite from "../models/favModel.mjs";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 import { postfaverrorhandler } from "../middlewares/errorHandler.mjs";
 
+dotenv.config();
+const Secret_Key = process.env.SECRET_key;
+
 export const postfav = async (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  const decoded = jwt.verify(token, Secret_Key);
+  const userId = decoded.userId;
   try {
     const existingFav = await Favourite.findOne({
-      user: req.userId,
+      user: userId,
       bookTitle: req.body.bookTitle,
     });
 
@@ -14,7 +22,7 @@ export const postfav = async (req, res) => {
         .json({ message: "You have already saved this book" });
     } else {
       const favData = {
-        user: req.userId,
+        user: userId,
         bookImage: req.body.bookImage,
         bookTitle: req.body.bookTitle,
         bookAuthor: req.body.bookAuthor,
@@ -59,7 +67,9 @@ export const getAllfavs = async (req, res) => {
 };
 
 export const getuserfav = async (req, res) => {
-  const userId = req.userId;
+  const token = req.headers.authorization?.split(" ")[1];
+  const decoded = jwt.verify(token, Secret_Key);
+  const userId = decoded.userId;
   try {
     const Books = await Favourite.find({ user: userId });
     res.status(200).json({ message: "done", books: Books });

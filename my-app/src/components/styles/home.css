@@ -123,3 +123,16 @@ p > strong {
   font-size: 16px;
   margin-right: 5px;
 }
+
+@media (max-width: 768px) {
+  .search-box {
+    width: 100%;
+  }
+}
+
+/* For small screens (e.g., mobile phones) */
+@media (max-width: 576px) {
+  .search-box {
+    width: 100%;
+  }
+}

@@ -27,14 +27,18 @@ export const login = async (req, res) => {
     if (!loginuser || !(await bcrypt.compare(password, loginuser.password))) {
       return res.status(401).json({ error: "Invalid credentials" });
     } else {
-      const token = jwt.sign(
+      const expiresIn = Date.now() + 24 * 60 * 60 * 1000;
+      const Access_token = jwt.sign(
         { userId: loginuser._id, email: loginuser.email },
         Secret_Key,
-        { expiresIn: "24h" }
+        { expiresIn: `${expiresIn}s` }
       );
 
-      res.cookie("token", token, { httpOnly: true });
-      res.status(200).json({ message: "Login successful", token });
+      res.status(200).json({
+        message: "Login successful",
+        Access_token,
+        expiresIn,
+      });
     }
   } catch (error) {
     console.error("Login failed", error);

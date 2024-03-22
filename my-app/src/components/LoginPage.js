@@ -34,10 +34,18 @@ function LoginPage() {
       const statusCode = response.status;
 
       const responseData = await response.json();
+      const accessToken = responseData.Access_token;
+      const expires = responseData.expiresIn;
 
       if (statusCode === 200) {
-        localStorage.setItem("isAuthenticated", "true");
-        setAuthState(true);
+        const authData = {
+          accessToken: accessToken,
+          expiresIn: expires,
+        };
+
+        console.log("token", authData);
+        setAuthState(authData);
+        window.localStorage.setItem("auth", JSON.stringify(authData));
         navigate("/Home");
         setEmail("");
         setPassword("");

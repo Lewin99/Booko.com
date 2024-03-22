@@ -27,6 +27,7 @@
 }
 .Form {
   width: 60%;
+  background-color: aqua;
   border-radius: 5px;
   margin-top: 54px;
   padding: 30px;
@@ -51,4 +52,18 @@
 #input {
   background: none;
   width: 400px;
+}
+
+/* For medium screens (e.g., tablets) */
+@media (max-width: 768px) {
+  .form-group {
+    width: 100%;
+  }
+}
+
+/* For small screens (e.g., mobile phones) */
+@media (max-width: 576px) {
+  .form-group {
+    width: 100%;
+  }
 }

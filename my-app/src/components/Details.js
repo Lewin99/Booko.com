@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import "./styles/details.css";
 import { useParams } from "react-router-dom";
 import { fetchBookDetails } from "../useHooks/fetchBookDetails";
+import { useMyContext } from "../Context/AutheticationContext";
 
 function Details() {
   const { id } = useParams();
@@ -12,6 +13,7 @@ function Details() {
   const [error, setError] = useState(null);
   const [isButtonVisible, setButtonVisible] = useState(true);
   const [IsSaved, setSaved] = useState(null);
+  const { AuthState, setAuthState } = useMyContext();
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -38,6 +40,7 @@ function Details() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${AuthState.accessToken}`,
           },
           body: JSON.stringify(data),
           credentials: "include",
@@ -67,7 +70,7 @@ function Details() {
       <div className="container-fluid" id="detail-container">
         {book ? (
           <div className="container bg-dark d-flex justify-content-center align-items-center">
-            <div className="d-none d-lg-block image">
+            <div className="d-none d-md-block image">
               <img src={book.data.book.bookImage} alt="buu" />
             </div>
 
@@ -112,7 +115,7 @@ function Details() {
                     <div className="BackButton">
                       <Link to={"/home"}>
                         <button type="button" className="btn btn-warning">
-                          Back To Home
+                          Back
                         </button>
                       </Link>
                     </div>
@@ -124,7 +127,7 @@ function Details() {
                           onClick={HandleSaveBook}
                           className="btn btn-warning"
                         >
-                          Save To Fav
+                          Save
                         </button>
                       )}
                     </div>

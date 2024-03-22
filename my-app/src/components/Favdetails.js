@@ -21,7 +21,7 @@ function Favdetails({ Fav, onDelete }) {
 
   return (
     <div className="Favbook container-fluid bg-dark">
-      <div className="FavImage">
+      <div className="d-none d-md-block FavImage">
         <img src={Fav.bookImage} alt="buu"></img>
       </div>
       <div className="Favinfowrapper">

@@ -3,9 +3,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import "./styles/favorites.css";
 import Favdetails from "./Favdetails";
+import { useMyContext } from "../Context/AutheticationContext";
 
 function Favorites() {
   const [Favs, setFavs] = useState(null); // Start with null or another initial value
+  const { AuthState, setAuthState } = useMyContext();
 
   const removeBookFromFavorites = (idToRemove) => {
     setFavs((prevFavs) => prevFavs.filter((book) => book._id !== idToRemove));
@@ -15,7 +17,13 @@ function Favorites() {
     const fetchFav = async () => {
       try {
         const response = await fetch(
-          "https://booko-com.onrender.com/favourites/userfav"
+          "https://booko-com.onrender.com/favourites/userfav",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${AuthState.accessToken}`,
+            },
+          }
         );
         if (response.ok) {
           const jsonRes = await response.json();
