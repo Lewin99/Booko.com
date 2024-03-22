@@ -30,6 +30,7 @@ function LoginPage() {
       });
 
       if (response.ok) {
+        alert("account created succesively");
         navigate("/");
         setEmail("");
         setPassword("");
