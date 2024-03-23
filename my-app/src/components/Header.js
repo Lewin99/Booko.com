@@ -15,8 +15,9 @@ function Header() {
       );
 
       if (response.status === 200) {
-        setAuthState(false);
         console.log("Logout successful");
+        setAuthState({}); // Set authState to an empty object
+        window.localStorage.removeItem("auth"); // Remove the auth item from localStorage
       } else {
         console.error("Logout failed");
       }
