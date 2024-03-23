@@ -8,6 +8,7 @@ import LoginPage from "./components/LoginPage";
 import Signup from "./components/Signup";
 import Favorites from "./components/Favorites";
 import Nomatch from "./components/Nomatch";
+import RequireAuth from "./useHooks/RequireAuth";
 
 function App() {
   const { setAuthState } = useMyContext();
@@ -30,11 +31,11 @@ function App() {
         <Route path="/Signup" element={<Signup />} />
 
         {authReady && (
-          <>
+          <Route element={<RequireAuth />}>
             <Route path="/Home" element={<Home />} />
             <Route path="Details/:id" element={<Details />} />
             <Route path="Favorites" element={<Favorites />} />
-          </>
+          </Route>
         )}
         <Route path="*" element={<Nomatch />} />
       </Routes>
