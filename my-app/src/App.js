@@ -9,14 +9,8 @@ import Signup from "./components/Signup";
 import Favorites from "./components/Favorites";
 import Nomatch from "./components/Nomatch";
 
-function PrivateRoute({ element, ...rest }) {
-  const { AuthState } = useMyContext();
-
-  return AuthState ? React.cloneElement(element, rest) : <Navigate to="/" />;
-}
-
 function App() {
-  const { setAuthState } = useMyContext();
+  const { authState, setAuthState } = useMyContext();
   const [authReady, setAuthReady] = useState(false);
 
   useEffect(() => {
@@ -29,6 +23,10 @@ function App() {
     setAuthReady(true);
   }, [setAuthState]);
 
+  const PrivateRoute = ({ element, ...rest }) => {
+    return authState ? React.cloneElement(element, rest) : <Navigate to="/" />;
+  };
+
   return (
     <div className="App">
       <Routes>
@@ -37,9 +35,15 @@ function App() {
 
         {authReady && (
           <>
-            <PrivateRoute path="/Home" element={<Home />} />
-            <PrivateRoute path="Details/:id" element={<Details />} />
-            <PrivateRoute path="Favorites" element={<Favorites />} />
+            <Route path="/Home" element={<PrivateRoute element={<Home />} />} />
+            <Route
+              path="Details/:id"
+              element={<PrivateRoute element={<Details />} />}
+            />
+            <Route
+              path="Favorites"
+              element={<PrivateRoute element={<Favorites />} />}
+            />
           </>
         )}
         <Route path="*" element={<Nomatch />} />
