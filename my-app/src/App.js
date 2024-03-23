@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { useMyContext } from "./Context/AutheticationContext";
 import Home from "./components/Home";
@@ -13,22 +13,15 @@ function App() {
   const { setAuthState } = useMyContext();
   const [authReady, setAuthReady] = useState(false);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     const storedAuthData = JSON.parse(window.localStorage.getItem("auth"));
+    console.log("Stored Auth Data:", storedAuthData);
 
     if (storedAuthData) {
       setAuthState(storedAuthData);
     }
     setAuthReady(true);
   }, [setAuthState]);
-
-  useEffect(() => {
-    if (!authReady) {
-      navigate("/");
-    }
-  }, [authReady, navigate]);
 
   return (
     <div className="App">
