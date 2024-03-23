@@ -10,7 +10,7 @@ import Favorites from "./components/Favorites";
 import Nomatch from "./components/Nomatch";
 
 function App() {
-  const { setAuthState } = useMyContext();
+  const { AuthState, setAuthState } = useMyContext();
   const [authReady, setAuthReady] = useState(false);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/Signup" element={<Signup />} />
 
-        {authReady && (
+        {!AuthState && authReady && (
           <>
             <Route path="/Home" element={<Home />} />
             <Route path="Details/:id" element={<Details />} />
