@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { useMyContext } from "./Context/AutheticationContext";
 import Home from "./components/Home";
@@ -10,7 +10,7 @@ import Favorites from "./components/Favorites";
 import Nomatch from "./components/Nomatch";
 
 function App() {
-  const { authState, setAuthState } = useMyContext();
+  const { setAuthState } = useMyContext();
   const [authReady, setAuthReady] = useState(false);
 
   useEffect(() => {
@@ -23,10 +23,6 @@ function App() {
     setAuthReady(true);
   }, [setAuthState]);
 
-  const PrivateRoute = ({ element, ...rest }) => {
-    return authState ? React.cloneElement(element, rest) : <Navigate to="/" />;
-  };
-
   return (
     <div className="App">
       <Routes>
@@ -35,15 +31,9 @@ function App() {
 
         {authReady && (
           <>
-            <Route path="/Home" element={<PrivateRoute element={<Home />} />} />
-            <Route
-              path="Details/:id"
-              element={<PrivateRoute element={<Details />} />}
-            />
-            <Route
-              path="Favorites"
-              element={<PrivateRoute element={<Favorites />} />}
-            />
+            <Route path="/Home" element={<Home />} />
+            <Route path="Details/:id" element={<Details />} />
+            <Route path="Favorites" element={<Favorites />} />
           </>
         )}
         <Route path="*" element={<Nomatch />} />
