@@ -15,6 +15,7 @@ function App() {
 
   useEffect(() => {
     const storedAuthData = JSON.parse(window.localStorage.getItem("auth"));
+    console.log("Stored Auth Data:", storedAuthData);
 
     if (storedAuthData) {
       setAuthState(storedAuthData);
