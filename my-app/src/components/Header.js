@@ -1,29 +1,16 @@
 import { React } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useMyContext } from "../Context/AutheticationContext";
 
 function Header() {
   const { setAuthState } = useMyContext();
-  const logout = async () => {
-    try {
-      const response = await fetch(
-        "https://booko-com.onrender.com/users/logout",
-        {
-          method: "POST",
-        }
-      );
+  const navigate = useNavigate();
 
-      if (response.status === 200) {
-        console.log("Logout successful");
-        setAuthState(null); // Set authState to an empty object
-        window.localStorage.removeItem("auth"); // Remove the auth item from localStorage
-      } else {
-        console.error("Logout failed");
-      }
-    } catch (error) {
-      console.error("Logout failed", error);
-    }
+  const logout = async () => {
+    window.localStorage.removeItem("auth");
+    setAuthState({});
+    navigate("/");
   };
 
   return (
